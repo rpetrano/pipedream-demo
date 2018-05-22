@@ -3,12 +3,14 @@
 import com.oradian.pipedream.integration.Github
 
 dream_build {
+    def BU = new BuildUtil(this)
     def PR = Github.create(this)
+
     def success = false
 
     try {
         PR.notifyBuildInProgress()
-        PR.abortPreviousBuilds()
+        BU.abortPreviousBuilds()
 
         stage('Build the build') {
             singlenode('dockerbuilder') {
