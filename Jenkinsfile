@@ -55,7 +55,7 @@ dream_build {
             )
         }
 
-        if (scm_util.branch == 'master') {
+        if (scm_util.branch == 'ozbiljno') {
             stage('Deploy') {
                 build(job: 'Deploy')
             }
