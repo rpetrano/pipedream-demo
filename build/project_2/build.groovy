@@ -11,7 +11,7 @@ singlenode('slave') {
 
     CacheCollection buildCache = common.buildTheBuild()
 
-    cached_build(files.project1Files) { CacheCollection cc ->
+    cached_build(files.project2Files) { CacheCollection cc ->
         def image = docker.image("project_2:${buildCache.sha1}")
         image.pull()
         image.inside {
